@@ -1,2 +1,21 @@
 
-session_templates = []
+session_templates = [
+{"Des": "Built a police station",
+                "Edu": 0,
+                "Crm": -3,
+                "Hth": 0,
+                "Ecn": 0,
+                "Ppv": 0,
+                "Col": 0,
+                "Id": 1,
+                },
+{"Des": "Built a school",
+                "Edu": 3,
+                "Crm": 0,
+                "Hth": 0,
+                "Ecn": 0,
+                "Ppv": 0,
+                "Col": 0,
+                "Id": 2,
+                },
+]

@@ -1,5 +1,7 @@
 ## E-Template Logic
 
+import session_e_templates as session
+
 def template_id():
     return len(current_templates) + 1
 
@@ -14,5 +16,5 @@ new_template = {"Des": "n/a",
                 }
 
 def add_template():
-    current_templates.append(new_template)
+    session_templates.append(new_template)
 
