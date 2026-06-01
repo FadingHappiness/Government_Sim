@@ -3,7 +3,7 @@
 import session_e_templates as session
 
 def template_id():
-    return len(current_templates) + 1
+    return len(session.session_templates) + 1
 
 new_template = {"Des": "n/a",
                 "Edu": 0,
@@ -16,5 +16,5 @@ new_template = {"Des": "n/a",
                 }
 
 def add_template():
-    session_templates.append(new_template)
+    session.session_templates.append(new_template)
 
