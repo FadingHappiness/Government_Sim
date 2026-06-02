@@ -1,40 +1,46 @@
-## Database
+## Database 2.0
+
 # Imports
 import sqlite3
+import os
 
-# Creates a connection to the database
-con = sqlite3.connect("testsimulation.db")
-# Creates a cursor
-cur = con.cursor()
+# Variables
+
+# Creates connection to database
+def db_init():
+    # Makes the variables global and usable outside the function
+    global con
+    global cur
+    # Creates a connection to the db and creates the db if it's not already
+    con = sqlite3.connect('simulation.db')
+    # Creates a cursor
+    cur = con.cursor()
 
 # Creates the table
 def table_create():
     cur.execute(
-        "CREATE TABLE IF NOT EXISTS testsession_templates(description, education, crime, health, economy, property_value, cost_of_living)")
+        "CREATE TABLE IF NOT EXISTS session_templates(description, education, crime, health, economy, property_value, cost_of_living, template_id)")
     con.commit()
+
 # Insert Data
 def new_template():
     cur.execute("""
-        INSERT INTO testsession_templates VALUES
-        ('Test Description', 1, 1, 1, 1, 1, 1)
-    """)
-    con.commit()
+                INSERT INTO session_templates
+                VALUES ('Test Description', 1, 1, 1, 1, 1, 1, 1)
+                """)
+
 # Print table
 def print_table():
-    cur.execute("SELECT * FROM testsession_templates")
+    cur.execute("SELECT * FROM session_templates")
     rows = cur.fetchall()
     for row in rows:
         print(row)
 
-
 # Clear Table
 def clear_table():
-    cur.execute("DELETE FROM testsession_templates")
+    cur.execute("DELETE FROM session_templates")
     con.commit()
 
-
-# Tests
-#table_create()
-new_template()
-#clear_table()
-print_table()
+# Close Connection
+def close_connection():
+    con.close()
