@@ -1,12 +1,11 @@
 ## Database 1.0
 # Imports
 import sqlite3
-import os
 
+# Creates a connection to the db and creates the db if it's not already
+con = sqlite3.connect('econ.db')
 # Creates a cursor
 cur = con.cursor()
-# Creates a connection to the db and creates the db if it's not already
-con = sqlite3.connect('simulation.db')
 
 # Creates the table
 def table_create():
@@ -17,11 +16,8 @@ def table_create():
 
 # Insert Data
 def new_template():
-    cur.execute("""
-                INSERT INTO session_templates
-                VALUES ('Test Description', 1, 1, 1, 1, 1, 1, 1)
-                """)
-
+    cur.execute("INSERT INTO session_templates VALUES ('Test Description', 1, 1, 1, 1, 1, 1, 1)")
+    con.commit()
 
 # Print table
 def print_table():
@@ -40,12 +36,3 @@ def clear_table():
 # Close Connection
 def close_connection():
     con.close()
-
-
-db_init()
-table_create()
-clear_table()
-new_template()
-new_template()
-print_table()
-

@@ -1,8 +1,11 @@
 ## New E-Templates
 # Imports
 import sqlite3
-from db import con
-from db import cur
+
+# Creates a connection to the db and creates the db if it's not already
+con = sqlite3.connect('econ.db')
+# Creates a cursor
+cur = con.cursor()
 
 # Gets count of template in database
 def get_id():
@@ -17,5 +20,3 @@ def get_id():
 # Multiplier of templates
 def multiple_templates():
     pass
-
-get_id()
