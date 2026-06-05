@@ -1,7 +1,6 @@
 ## Database 1.0
 # Imports
 import sqlite3
-
 # Creates a connection to the db and creates the db if it's not already
 con = sqlite3.connect('econ.db')
 # Creates a cursor
@@ -13,11 +12,6 @@ def table_create():
         "CREATE TABLE IF NOT EXISTS session_templates(description, education, crime, health, economy, property_value, cost_of_living, template_id)")
     con.commit()
 
-
-# Insert Data
-def new_template():
-    cur.execute("INSERT INTO session_templates VALUES ('Test Description', 1, 1, 1, 1, 1, 1, 1)")
-    con.commit()
 
 # Print table
 def print_table():

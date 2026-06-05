@@ -11,8 +11,14 @@ cur = con.cursor()
 def get_id():
     cur.execute("SELECT COUNT(*) FROM session_templates")
     count = cur.fetchone()
-    template_id = count[0]
-    print(template_id)
+    template_id = count[0] + 1
+    return(template_id)
+
+# Insert Data
+def new_template():
+    template_id = get_id()
+    cur.execute("INSERT INTO session_templates VALUES ('Test Description', 1, 1, 1, 1, 1, 1, ?)", (template_id,))
+    con.commit()
 
 # List of new templates
 #session_templates = []
@@ -20,3 +26,5 @@ def get_id():
 # Multiplier of templates
 def multiple_templates():
     pass
+
+new_template()
